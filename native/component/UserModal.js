@@ -11,7 +11,7 @@ class UserScreen extends React.Component {
           style={{backgroundColor: 'white'}}
           androidStatusBarColor="black">
           <Body>
-          <Title>User</Title>
+          <Title>Account</Title>
           </Body>
           <Right>
             <Button light transparent onPress={() => this.props.navigation.goBack()}>
@@ -20,7 +20,7 @@ class UserScreen extends React.Component {
           </Right>
         </Header>
         <View style={styles.container}>
-          <Text>Modal Screen</Text>
+          <Button block transparent light><Text style={{color: 'black'}}>Profiles</Text></Button>
         </View>
       </Container>
     );
@@ -30,8 +30,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
   },
 });
 export default UserScreen;
