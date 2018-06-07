@@ -41,7 +41,7 @@ const TabBar =  TabNavigator(
 
 const Root = StackNavigator(
   {
-    Main: TabBar,
+    Main: IPSAStack,
     UserModal: UserScreen,
   },
   {
