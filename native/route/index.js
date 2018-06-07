@@ -1,12 +1,13 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
-import {createTabNavigator, TabBarBottom, TabNavigator} from 'react-navigation';
+import {createTabNavigator, StackNavigator, TabBarBottom, TabNavigator} from 'react-navigation';
 import {Icon} from 'native-base';
 import IPSAStack from "../component/HomeComponent";
 import SettingScreen from "../component/SettingComponent";
+import UserScreen from "../component/UserModal";
 
-export default TabNavigator(
+const TabBar =  TabNavigator(
   {
     Home: { screen: IPSAStack },
     Settings: { screen: SettingScreen },
@@ -37,3 +38,16 @@ export default TabNavigator(
     swipeEnabled: false,
   }
 );
+
+const Root = StackNavigator(
+  {
+    Main: TabBar,
+    UserModal: UserScreen,
+  },
+  {
+    mode: 'modal',
+    headerMode: 'node',
+  }
+);
+
+export default Root;
