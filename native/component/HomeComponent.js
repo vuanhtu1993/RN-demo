@@ -2,12 +2,17 @@ import React from 'react';
 import {Text, View, StyleSheet, FlatList} from 'react-native';
 import {Button, Container, Content, Header, Icon} from 'native-base'
 
-import {createStackNavigator} from "react-navigation";
+import {createStackNavigator, StackNavigator} from "react-navigation";
 
 class IPSAScreen extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = ({navigation}) => ({
     title: 'IPSA',
-  };
+    headerRight: (
+      <Button light transparent onPress={() => navigation.navigate('UserModal')}>
+        <Icon style={{marginTop: 5, color: 'black'}} type="FontAwesome" name="user"/>
+      </Button>
+    )
+  });
   render() {
     return (
         <Container style={{padding: 20}}>
@@ -51,7 +56,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const IPSAStack = createStackNavigator(
+const IPSAStack = StackNavigator(
   {
     IPSA: IPSAScreen,
     Cause: CauseScreen,
